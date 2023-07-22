@@ -7,7 +7,7 @@ import Todo from './Todo'
 
 /* cada que se cree una funcion o en app que tenga que ver con funcionalidad, se debe de agregar tanto en el parametro TodoList como dentro del todo.map */
 
-const TodoList = ({ todos, todoDelete, todoToogleComplete }) => {
+const TodoList = ({ todos, todoDelete, todoToogleComplete, setTodoEdit }) => {
 
 
   return (
@@ -21,6 +21,7 @@ const TodoList = ({ todos, todoDelete, todoToogleComplete }) => {
             key={todo.id}
             todoDelete={todoDelete}
             todoToogleComplete={todoToogleComplete}
+            setTodoEdit={setTodoEdit}
           />
         ))
       }

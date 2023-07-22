@@ -35,6 +35,9 @@ const App = () => {
   /* const [posicion0 asignalo a una variable todos, posicion1 asignalo a una variable setTodos] = useState(initialTodos aray) */
   const [todos, setTodos] = useState(initialTodos)
 
+  /* creacion de useState para editar una tarea */
+  const [todoEdit, setTodoEdit] = useState(null)
+
   /* creacion de funcion que elimina un TO-DO */
   const todoDelete = (todoId) => {
 
@@ -96,6 +99,18 @@ const App = () => {
     setTodos(changedTodos)
   }
 
+  /* funcion para edit o actualizar */
+  const todoUpdate = (todoEdit) => {
+
+    const changedTodos = todos.map(todo => (
+      todo.id === todoEdit.id
+        ? todoEdit
+        : todo
+    ))
+
+    setTodos(changedTodos)
+  }
+
   return (
     /* return varios elementos: se utiliza un fragment, etiquetas abiertas, ya que podria danar nuestra maquetacion
     */
@@ -106,12 +121,17 @@ const App = () => {
             todos={todos}
             todoDelete={todoDelete}
             todoToogleComplete={todoToogleComplete}
+            setTodoEdit={setTodoEdit}
           />
           {/* componentes */}
         </div>
         <div className="col-4">
           <TodoForm
+            /* se agrega tanto en todo list como en todoForm para que pueda ser renderizado */
+            todoEdit={todoEdit}
             todoAdd={todoAdd}
+            todoUpdate={todoUpdate}
+            setTodoEdit={setTodoEdit}
           />
         </div>
       </div>

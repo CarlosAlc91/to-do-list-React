@@ -6,7 +6,7 @@ import React from 'react'
 /* Esta desestructuracion se hace directamente dentro del argumeto del componente */
 /* cada que se cree una funcion o en app que tenga que ver con funcionalidad, se debe de agregar tanto en el parametro Todo como dentro del button al que la funcionalidad este haciendo referencia */
 
-const Todo = ({ todo, todoDelete, todoToogleComplete }) => {
+const Todo = ({ todo, todoDelete, todoToogleComplete, setTodoEdit }) => {
 
   return (
     <div className='card mt-2'>
@@ -34,7 +34,10 @@ const Todo = ({ todo, todoDelete, todoToogleComplete }) => {
 
           {/* btn-success = boton azul */}
           {/* mr-2 = margen a la derecha de 2 */}
-          <button className='btn btn-sm btn-outline-primary' style={{ marginRight: '10px' }}>
+          <button
+            /* en el evento onClick se va a ejecutar la funcion editar, como aargumento le pasamos el todo, que son las tareas y se agrega como argumento en las props osea en const Todo */
+            onClick={() => setTodoEdit(todo)}
+            className='btn btn-sm btn-outline-primary me-2'>
             Edit
           </button>
           {/* btn-danger = boton de color rojo */}
