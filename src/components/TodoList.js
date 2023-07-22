@@ -1,37 +1,28 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Todo from './Todo'
 
 /* se va a importar a App.js */
 
 /* para una mejor lectura de los todo, se crea un array con los todo */
 
-const initialTodos = [
-  {
-    id: 1,
-    title: 'TO-DO #1',
-    description: 'TO-DO #1 description',
-    completed: false
-  },
+/* cada que se cree una funcion o en app que tenga que ver con funcionalidad, se debe de agregar tanto en el parametro TodoList como dentro del todo.map */
 
-  {
-    id: 2,
-    title: 'TO-DO #2',
-    description: 'TO-DO #2 description',
-    completed: true
-  }
-]
+const TodoList = ({ todos, todoDelete, todoToogleComplete }) => {
 
-const TodoList = () => {
-  /* desestructuracion del array initialTodos*/
-  /* const [posicion0 asignalo a una variable todos, posicion1 asignalo a una variable setTodos] = useState(initialTodos aray) */
-  const [todos, setTodos] = useState(initialTodos)
 
   return (
     /* a un fragment no se le pueden asignar o agregar style.css */
     <div>
       <h1 className='text-right' style={{ textAlign: 'right' }}>I'm a to-do list</h1>
       {
-        todos.map(todo => <Todo todo={todo} key={todo.id} />)
+        todos.map(todo => (
+          <Todo
+            todo={todo}
+            key={todo.id}
+            todoDelete={todoDelete}
+            todoToogleComplete={todoToogleComplete}
+          />
+        ))
       }
     </div>
   )
