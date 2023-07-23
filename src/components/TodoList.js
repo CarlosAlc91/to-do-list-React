@@ -14,7 +14,7 @@ const TodoList = ({ todos, todoDelete, todoToogleComplete, setTodoEdit }) => {
     /* a un fragment no se le pueden asignar o agregar style.css */
     <div>
       {/* en bootstrap 5, text-left === text-start, text-right === text-start*/}
-      <h2 className='text-end display-4'>I'm a to-do list</h2>
+      <h2 className='text-center display-1'>My list 📝</h2>
 
       {/* carga condicional para mostrar un mensaje cuando no se tengan tareas agregadas */}
       {/* si el arreglo todos.length esta vacio === 0 */}
@@ -22,8 +22,8 @@ const TodoList = ({ todos, todoDelete, todoToogleComplete, setTodoEdit }) => {
         todos.length === 0
           /* muestras este mensaje */
           ? (
-            <div className='alert alert-primary'>
-              No tasks, please add a new task!!📝
+            <div className='alert alert-primary text-center display-5'>
+              ⚠️ No tasks, please add a new one!! ⚠️
             </div>
           )
           /* en caso contrario itera sobre todos los todos y muestrame las tareas que haya */

@@ -58,13 +58,13 @@ const TodoForm = ({ todoAdd, todoEdit, todoUpdate, setTodoEdit }) => {
 
     /* validacion para los titulos vacios */
     if (title.trim() === '') {
-      setError('Must enter title')
+      setError('Please, enter a title')
       return
     }
 
     /* validacion para tareas vacias */
     if (description.trim() === '') {
-      setError('Must enter a description')
+      setError('Please, enter a description')
       return
     }
 
@@ -113,8 +113,8 @@ const TodoForm = ({ todoAdd, todoEdit, todoUpdate, setTodoEdit }) => {
           /* siempre se debe de crear un arrow function para que la funcion sea ejecutada hasta que reciba el click en el boton Discard */
           /* el boton en su evento onClick va a llamar a la funcion setTodoEdit y lo va a regresar a su estado inicial null */
           onClick={() => setTodoEdit(null)}
-          className='btn btn-sm btn-warning mb-2 w-100'>
-          Press if you're done editing!✅
+          className='btn btn-sm btn-warning mb-2 w-100 text-secondary text-uppercase fs-4'>
+          Done editing!👍🏽
         </button>
       }
 
@@ -138,10 +138,10 @@ const TodoForm = ({ todoAdd, todoEdit, todoUpdate, setTodoEdit }) => {
 
         <button
           /* in the new bootstrap btn-block(to use a full-size button) is not working now we use w-100 (width at 100%) */
-          className='btn btn-primary w-100 mt-2'>
+          className='btn btn-primary w-100 mt-2 fs-3 '>
           {/* todoEdit no es null ? muestrame update task : de lo contrario quiere decir qie esta en null muestrame add task */}
           {/* cuando hacemos el update de las tareas se agrega como si fuera una nueva tarea en vez de solo actulizarse en la mmisma tarea por ende se necesita hacer un cambio en el submit todoAdd */}
-          {todoEdit ? 'Update task' : 'Add task'}
+          {todoEdit ? 'Update task ✅' : 'Add task'}
         </button>
 
       </form>
@@ -149,7 +149,7 @@ const TodoForm = ({ todoAdd, todoEdit, todoUpdate, setTodoEdit }) => {
         /* si error tiene algun valor me muestra la expresion, sino tiene nada, no muestra nada */
         error &&
         (
-          <div className='alert alert-danger mt-2'>
+          <div className='alert alert-danger mt-2 text-center fs-5'>
             {error}
           </div>
         )
@@ -160,7 +160,7 @@ const TodoForm = ({ todoAdd, todoEdit, todoUpdate, setTodoEdit }) => {
         /* muestra un mensaje de exito cuando se haya agregado una nueva tarea exitosamente */
         successMessage &&
         (
-          <div className='alert alert-success mt-2'>
+          <div className='alert alert-success mt-2 text-center fs-5'>
             {successMessage}
           </div>
         )
