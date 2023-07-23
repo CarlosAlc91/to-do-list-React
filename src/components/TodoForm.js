@@ -113,8 +113,8 @@ const TodoForm = ({ todoAdd, todoEdit, todoUpdate, setTodoEdit }) => {
           /* siempre se debe de crear un arrow function para que la funcion sea ejecutada hasta que reciba el click en el boton Discard */
           /* el boton en su evento onClick va a llamar a la funcion setTodoEdit y lo va a regresar a su estado inicial null */
           onClick={() => setTodoEdit(null)}
-          className='btn btn-sm btn-warning mb-2'>
-          Discard
+          className='btn btn-sm btn-warning mb-2 w-100'>
+          Press if you're done editing!✅
         </button>
       }
 
