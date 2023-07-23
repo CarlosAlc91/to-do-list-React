@@ -32,6 +32,10 @@ const TodoForm = ({ todoAdd, todoEdit, todoUpdate, setTodoEdit }) => {
     if (todoEdit) {
 
       setFormValues(todoEdit)
+      /* cuando sean null manda a los formValues el valor inicial */
+    } else {
+      setFormValues(initalFormValues)
+      /* ahora si estamos editando algun todo y lo eliminamos, el formulario se limpia */
     }
 
   }, [todoEdit])
@@ -99,7 +103,7 @@ const TodoForm = ({ todoAdd, todoEdit, todoUpdate, setTodoEdit }) => {
     <div>
 
       {/* si todoEdit ? no es null edit new task : de lo contrario quiere decir que esta en null por lo tanto new task */}
-      <h1>{todoEdit ? 'Edit task' : 'New task'}</h1>
+      <h2 className='text-center display-3'>{todoEdit ? 'Edit task' : 'New task'}</h2>
 
       {/* este boton solo se mostrara cuando estemos en modo de edicion */}
       {/* para salir del modo de edicion debemos regresar el botn a su estado null, por lo que en App.js se necesita enviar la funcion de actualizar al formulario setTodoEdit dentro del return en TodoForm se agrega setTodoEdit={setTodoEdit} */}
